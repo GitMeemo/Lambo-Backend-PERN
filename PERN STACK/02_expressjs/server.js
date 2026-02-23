@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
     res.json(cars);
 });
 
-router.post("/cars", (req, res) => {
+router.post("/", (req, res) => {
   const { make, model, year, price } = req.body;
 
   // Validation
