@@ -56,12 +56,38 @@ router.post("/", (req, res) => {
   res.status(201).json(newCar);
 });
 
-router.put('/:id', (req, res) => {
-    res.send('Update cars');
+router.put("/:id", (req, res) => {
+  const carId = parseInt(req.params.id);
+  const carIndex = cars.findIndex((c) => c.id === carId);
+
+  if (carIndex === -1) {
+    return res.status(404).json({ error: "Car not found" });
+  }
+
+  const { make, model, year, price } = req.body;
+
+  if (make) cars[carIndex].make = make;
+  if (model) cars[carIndex].model = model;
+  if (year) cars[carIndex].year = parseInt(year);
+  if (price) cars[carIndex].price = parseFloat(price);
+
+  res.json(cars[carIndex]);
 });
 
-router.delete('/:id', (req, res) => {
-    res.send('Delete car');
+router.delete("/:id", (req, res) => {
+  const carId = parseInt(req.params.id);
+  const carIndex = cars.findIndex((c) => c.id === carId);
+
+  if (carIndex === -1) {
+    return res.status(404).json({ error: "Car not found" });
+  }
+
+  const deletedCar = cars.splice(carIndex, 1)[0];
+
+  res.json({
+    message: "Car deleted successfully",
+    car: deletedCar,
+  });
 });
 
 app.use('/api/v1/cars', router);
