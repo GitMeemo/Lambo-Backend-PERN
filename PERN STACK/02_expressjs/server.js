@@ -23,13 +23,37 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
+    // params return string so it will be converted to be used as Integer
     const id = Number(req.params.id);
-    const car = cars.find((car) => car.id ===id);
+    const car = cars.find((car) => car.id === id);
 
+    if (!car) return res.status(404).send('Car not found!');
+    res.json(cars);
 });
 
-router.post('/', (req, res) => {
-    res.send('Create new car');
+router.post("/cars", (req, res) => {
+  const { make, model, year, price } = req.body;
+
+  // Validation
+  if (!make || !model || !year || !price) {
+    return res.status(400).json({
+      error: "Please provide make, model, year, and price",
+    });
+  }
+
+  const nextId = cars.length + 1;
+
+  const newCar = {
+    id: nextId,
+    make,
+    model,
+    year: parseInt(year),
+    price: parseFloat(price),
+  };
+
+  cars.push(newCar);
+
+  res.status(201).json(newCar);
 });
 
 router.put('/:id', (req, res) => {
