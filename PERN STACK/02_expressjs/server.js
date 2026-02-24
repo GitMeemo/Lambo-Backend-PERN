@@ -8,6 +8,13 @@ const router = express.Router();
 //Middleware func() Parses JSON and help to read
 app.use(express.json());
 
+//Middleware to show requests
+app.use((req, res, next) => {
+  const timestamp = new Date().toISOString();
+  console.log(`[${timestamp}] ${req.method} ${req.url}`);
+  next();
+});
+
 let cars = [
     { id: 1, make: "Toyota", model: "Corolla", year: 2022, price: 4000 },
     { id: 2, make: "Suzuki", model: "Mehran", year: 2016, price: 500 },
