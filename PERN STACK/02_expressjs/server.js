@@ -8,7 +8,7 @@ const router = express.Router();
 //Middleware func() Parses JSON and help to read
 app.use(express.json());
 
-//Middleware to show requests
+//Middleware to show Request Timestamp
 app.use((req, res, next) => {
   const timestamp = new Date().toISOString();
   console.log(`[${timestamp}] ${req.method} ${req.url}`);
