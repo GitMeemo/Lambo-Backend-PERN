@@ -1,4 +1,4 @@
-import { pgTable, serial, text, varchar, integer, numeric, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, serial, varchar, integer, numeric, timestamp } from 'drizzle-orm/pg-core';
 
 //SCHEMA 
 export const cars = pgTable('cars', {
