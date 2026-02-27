@@ -1,5 +1,5 @@
 {
-  "id": "09acffa9-4688-4868-9281-9d169ff5b935",
+  "id": "60ad7ed4-7313-41b9-9ab3-a2b203101c7b",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -20,6 +20,12 @@
           "primaryKey": false,
           "notNull": true
         },
+        "model": {
+          "name": "model",
+          "type": "varchar(100)",
+          "primaryKey": false,
+          "notNull": true
+        },
         "year": {
           "name": "year",
           "type": "integer",
@@ -34,7 +40,7 @@
         },
         "created_at": {
           "name": "created_at",
-          "type": "cal::local_datetime",
+          "type": "timestamp",
           "primaryKey": false,
           "notNull": false,
           "default": "now()"

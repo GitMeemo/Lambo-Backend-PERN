@@ -1,1 +1,0 @@
-ALTER TABLE "cars" ADD COLUMN "model" varchar(100) NOT NULL;

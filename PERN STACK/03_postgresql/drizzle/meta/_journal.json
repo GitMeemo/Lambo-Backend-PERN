@@ -5,29 +5,8 @@
     {
       "idx": 0,
       "version": "7",
-      "when": 1772056853596,
-      "tag": "0000_sour_newton_destine",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "7",
-      "when": 1772056969445,
-      "tag": "0001_mixed_red_ghost",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "7",
-      "when": 1772057149479,
-      "tag": "0002_rare_maggott",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "7",
-      "when": 1772059297865,
-      "tag": "0003_kind_strong_guy",
+      "when": 1772222150317,
+      "tag": "0000_handy_lester",
       "breakpoints": true
     }
   ]
