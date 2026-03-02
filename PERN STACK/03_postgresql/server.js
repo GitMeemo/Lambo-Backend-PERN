@@ -20,6 +20,8 @@ app.get("/", (req, res) => {
 });
 
 router.get("/cars", async (req, res) => {
+
+  //Shows Data from DB
   const allCars = await db.select().from(cars);
 
   res.json(allCars);
@@ -34,6 +36,7 @@ router.post("/cars", async (req, res) => {
     });
   }
 
+  //Creates Data in DB
   const [newCar] = await db.insert(cars).values({ make, model, year, price }).returning();
 
   res.status(201).json(newCar);
